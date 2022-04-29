@@ -1,7 +1,7 @@
-package org.sjhstudio.paging3example.remote
+package org.sjhstudio.paging3example.data.remote
 
 import org.sjhstudio.paging3example.model.UnsplashImage
-import org.sjhstudio.paging3example.util.Val.API_KEY
+import org.sjhstudio.paging3example.util.Constants.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

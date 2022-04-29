@@ -5,10 +5,11 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import org.sjhstudio.paging3example.database.UnsplashDatabase
+import org.sjhstudio.paging3example.data.local.UnsplashDatabase
 import org.sjhstudio.paging3example.model.UnsplashImage
 import org.sjhstudio.paging3example.model.UnsplashRemoteKey
-import org.sjhstudio.paging3example.remote.UnsplashApi
+import org.sjhstudio.paging3example.data.remote.UnsplashApi
+import org.sjhstudio.paging3example.util.Constants.ITEMS_PER_PAGE
 import java.lang.Exception
 
 @ExperimentalPagingApi
@@ -24,7 +25,7 @@ class UnsplashRemoteMediator(
      * MediatorResult.Success(endOfPaginationReached = false)
      * : 로드가 성공적, 수신된 항목목록이 비어있지 않음.
      * MediatorResult.Success(endOfPaginationReached = true)
-     * : 로드가 성공적, 수신된 항목목록이 비어있거나 마지마 페이지 색인인 경우.
+     * : 로드가 성공적, 수신된 항목목록이 비어있거나 마지막 페이지 색인인 경우.
      */
     override suspend fun load(
         loadType: LoadType,
@@ -56,7 +57,7 @@ class UnsplashRemoteMediator(
                 }
             }
 
-            val response = unsplashApi.getAllImages(page = curPage, perPage = 10)
+            val response = unsplashApi.getAllImages(page = curPage, perPage = ITEMS_PER_PAGE)
             val endOfPaginationReached = response.isEmpty()
             val prevPage = if(curPage == 1) null else curPage-1
             val nextPage = if(endOfPaginationReached) null else curPage+1

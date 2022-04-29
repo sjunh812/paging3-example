@@ -1,4 +1,4 @@
-package org.sjhstudio.paging3example.database
+package org.sjhstudio.paging3example.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

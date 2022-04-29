@@ -5,7 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-import org.sjhstudio.paging3example.util.Val.UNSPLASH_IMAGE_TABLE
+import org.sjhstudio.paging3example.util.Constants.UNSPLASH_IMAGE_TABLE
 
 @Parcelize
 @Entity(tableName = UNSPLASH_IMAGE_TABLE)

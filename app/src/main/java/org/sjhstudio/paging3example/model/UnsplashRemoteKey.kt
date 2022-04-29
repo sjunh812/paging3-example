@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-import org.sjhstudio.paging3example.util.Val.UNSPLASH_REMOTE_KEYS_TABLE
+import org.sjhstudio.paging3example.util.Constants.UNSPLASH_REMOTE_KEYS_TABLE
 
 @Entity(tableName = UNSPLASH_REMOTE_KEYS_TABLE)
 @Parcelize

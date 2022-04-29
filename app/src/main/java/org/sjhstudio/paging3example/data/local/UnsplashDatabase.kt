@@ -1,9 +1,11 @@
-package org.sjhstudio.paging3example.database
+package org.sjhstudio.paging3example.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import org.sjhstudio.paging3example.data.local.dao.UnsplashImageDao
+import org.sjhstudio.paging3example.data.local.dao.UnsplashRemoteKeyDao
 import org.sjhstudio.paging3example.model.UnsplashImage
 import org.sjhstudio.paging3example.model.UnsplashRemoteKey
 
