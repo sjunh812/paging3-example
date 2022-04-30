@@ -1,8 +1,6 @@
 package org.sjhstudio.paging3example.data.local
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import org.sjhstudio.paging3example.data.local.dao.UnsplashImageDao
 import org.sjhstudio.paging3example.data.local.dao.UnsplashRemoteKeyDao
@@ -14,26 +12,5 @@ abstract class UnsplashDatabase: RoomDatabase() {
 
     abstract fun unsplashImageDao(): UnsplashImageDao
     abstract fun unsplashRemoteKeyDao(): UnsplashRemoteKeyDao
-
-    companion object {
-
-        private var instance: UnsplashDatabase? = null
-
-        fun getInstance(context: Context): UnsplashDatabase? {
-            if(instance == null) {
-                // 다중스레드에서 접근방지 = lock
-                synchronized(this) {
-                    instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        UnsplashDatabase::class.java,
-                        "unsplash_db"
-                    ).build()
-                }
-            }
-
-            return instance
-        }
-
-    }
 
 }

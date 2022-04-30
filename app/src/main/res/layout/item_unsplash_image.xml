@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/photo_img"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_placeholder" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:paddingHorizontal="6dp"
+            android:background="#50000000">
+
+            <TextView
+                android:id="@+id/photo_by_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/photo_by"
+                android:textSize="12sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/user_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/photo_by_tv"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/on_unsplash_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/user_name_tv"
+                android:layout_centerVertical="true"
+                android:text="@string/on_unsplash"
+                android:textSize="12sp"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/heart_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="6dp"
+                android:layout_toStartOf="@id/likes_tv"
+                android:src="@drawable/ic_heart"
+                app:tint="#FF4444" />
+
+            <TextView
+                android:id="@+id/likes_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

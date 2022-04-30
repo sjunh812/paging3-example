@@ -11,9 +11,10 @@ import org.sjhstudio.paging3example.model.UnsplashRemoteKey
 import org.sjhstudio.paging3example.data.remote.UnsplashApi
 import org.sjhstudio.paging3example.util.Constants.ITEMS_PER_PAGE
 import java.lang.Exception
+import javax.inject.Inject
 
 @ExperimentalPagingApi
-class UnsplashRemoteMediator(
+class UnsplashRemoteMediator @Inject constructor(
     private val unsplashApi: UnsplashApi,
     private val unsplashDatabase: UnsplashDatabase
 ): RemoteMediator<Int, UnsplashImage>() {
@@ -22,10 +23,10 @@ class UnsplashRemoteMediator(
     private val unsplashRemoteKeyDao = unsplashDatabase.unsplashRemoteKeyDao()
 
     /**
+     * MediatorResult.Success(endOfPaginationReached = true)
+     * : 로드가 성공적, 수신된 항목목록이 비어있거나, 마지막 페이지 색인인 경우.
      * MediatorResult.Success(endOfPaginationReached = false)
      * : 로드가 성공적, 수신된 항목목록이 비어있지 않음.
-     * MediatorResult.Success(endOfPaginationReached = true)
-     * : 로드가 성공적, 수신된 항목목록이 비어있거나 마지막 페이지 색인인 경우.
      */
     override suspend fun load(
         loadType: LoadType,
@@ -34,11 +35,13 @@ class UnsplashRemoteMediator(
         return try {
             val curPage = when(loadType) {
                 LoadType.REFRESH -> {
+                    println("xxx UnsplashRemoteMediator : LoadType.REFRESH")
                     val remoteKey = getRemoteKeyClosetToCurrentPosition(state)
                     remoteKey?.nextPage?.minus(1) ?: 1
                 }
 
                 LoadType.PREPEND -> {
+                    println("xxx UnsplashRemoteMediator : LoadType.PREPEND")
                     val remoteKey = getRemoteKeyForFirstItem(state)
                     val prevPage = remoteKey?.prevPage
                         ?: return MediatorResult.Success(
@@ -48,6 +51,7 @@ class UnsplashRemoteMediator(
                 }
 
                 LoadType.APPEND -> {
+                    println("xxx UnsplashRemoteMediator : LoadType.APPEND")
                     val remoteKey = getRemoteKeyForLastItem(state)
                     val nextPage = remoteKey?.nextPage
                         ?: return MediatorResult.Success(
@@ -76,7 +80,7 @@ class UnsplashRemoteMediator(
                         nextPage = nextPage
                     )
                 }
-
+                println("xxx Add UnsplashDatabase : curPage=$curPage")
                 unsplashImageDao.addImages(images = response)
                 unsplashRemoteKeyDao.addAllRemoteKeys(remoteKeys = keys)
             }

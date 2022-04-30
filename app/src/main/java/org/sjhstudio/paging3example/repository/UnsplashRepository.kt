@@ -7,9 +7,10 @@ import org.sjhstudio.paging3example.model.UnsplashImage
 import org.sjhstudio.paging3example.paging.UnsplashRemoteMediator
 import org.sjhstudio.paging3example.data.remote.UnsplashApi
 import org.sjhstudio.paging3example.util.Constants.ITEMS_PER_PAGE
+import javax.inject.Inject
 
 @ExperimentalPagingApi
-class UnsplashRepository(
+class UnsplashRepository @Inject constructor(
     private val unsplashApi: UnsplashApi,
     private val unsplashDatabase: UnsplashDatabase
 ) {
