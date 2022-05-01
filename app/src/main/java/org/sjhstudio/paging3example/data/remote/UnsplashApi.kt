@@ -1,5 +1,6 @@
 package org.sjhstudio.paging3example.data.remote
 
+import org.sjhstudio.paging3example.model.SearchResult
 import org.sjhstudio.paging3example.model.UnsplashImage
 import org.sjhstudio.paging3example.util.Constants.API_KEY
 import retrofit2.http.GET
@@ -18,8 +19,9 @@ interface UnsplashApi {
     @Headers("Authorization: Client-ID $API_KEY")
     @GET("/search/photos")
     suspend fun searchImages(
+        @Query("query") query: String,   // 검색어
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): List<UnsplashImage>
+    ): SearchResult
 
 }

@@ -6,6 +6,7 @@ import org.sjhstudio.paging3example.data.local.UnsplashDatabase
 import org.sjhstudio.paging3example.model.UnsplashImage
 import org.sjhstudio.paging3example.paging.UnsplashRemoteMediator
 import org.sjhstudio.paging3example.data.remote.UnsplashApi
+import org.sjhstudio.paging3example.paging.SearchPagingSource
 import org.sjhstudio.paging3example.util.Constants.ITEMS_PER_PAGE
 import javax.inject.Inject
 
@@ -34,6 +35,15 @@ class UnsplashRepository @Inject constructor(
                 unsplashDatabase
             ),
             pagingSourceFactory = pagingSourceFactory
+        ).liveData
+    }
+
+    fun searchImages(query: String): LiveData<PagingData<UnsplashImage>> {
+        return Pager(
+            config = PagingConfig(pageSize = ITEMS_PER_PAGE),
+            pagingSourceFactory = {
+                SearchPagingSource(unsplashApi = unsplashApi, query = query)
+            }
         ).liveData
     }
 

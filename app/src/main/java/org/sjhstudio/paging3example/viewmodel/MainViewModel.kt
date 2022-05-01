@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @ExperimentalPagingApi
 @HiltViewModel
-class UnsplashViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     application: Application,
     unsplashRepository: UnsplashRepository
 ): AndroidViewModel(application) {

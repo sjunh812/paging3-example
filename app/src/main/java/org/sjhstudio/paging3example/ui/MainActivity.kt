@@ -1,5 +1,6 @@
 package org.sjhstudio.paging3example.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -12,14 +13,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import org.sjhstudio.paging3example.R
 import org.sjhstudio.paging3example.databinding.ActivityMainBinding
 import org.sjhstudio.paging3example.ui.adapter.UnsplashImageAdapter
-import org.sjhstudio.paging3example.viewmodel.UnsplashViewModel
+import org.sjhstudio.paging3example.viewmodel.MainViewModel
 
 @ExperimentalPagingApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by lazy { DataBindingUtil.setContentView(this, R.layout.activity_main) }
-    private val unsplashViewModel: UnsplashViewModel by viewModels()
+    private val unsplashViewModel: MainViewModel by viewModels()
     private val unsplashImageAdapter by lazy { UnsplashImageAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.action_search -> {
                 // 이미지 검색
+                startActivity(Intent(this, SearchActivity::class.java))
             }
         }
 
