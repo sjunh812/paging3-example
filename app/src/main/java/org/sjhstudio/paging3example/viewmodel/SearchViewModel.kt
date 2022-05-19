@@ -10,10 +10,10 @@ import org.sjhstudio.paging3example.repository.UnsplashRepository
 import javax.inject.Inject
 
 /**
- * SearchViewModel : SearchActivity에서 사용되는 뷰모델
- * 검색할 query를 입력하면
- * query값에 따라 그에맞는 unsplash이미지를 불러옴.
- * (switchMap을 이용해 데이터 변환)
+ * SearchViewModel : SearchActivity 에서 사용되는 뷰모델
+ * 검색할 query 를 입력하면
+ * query 값에 따라 그에맞는 unsplash 이미지를 불러옴.
+ * (switchMap 을 이용해 데이터 변환)
  */
 @ExperimentalPagingApi
 @HiltViewModel

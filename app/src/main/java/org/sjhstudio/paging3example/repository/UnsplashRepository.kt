@@ -20,7 +20,6 @@ class UnsplashRepository @Inject constructor(
      *
      * 1. RemoteMediator 사용 (현재)
      * : 네트워킹 캐시를 db에 저장해서 이용하는 방법
-     *
      * 2. PagingSource 사용
      * : 일반적인 네트워킹을 이용하는 방법
      */

@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/src/main/java/org/sjhstudio/paging3example/util/Constants.kt
