@@ -1,6 +1,4 @@
 # 📑 Paging3 Example
-
-<br>
 <br>
 ## 📷 스크린샷
 <img src="https://user-images.githubusercontent.com/79048895/171569763-94cea983-5496-40d7-b59b-90390695fa32.jpg" width="180" height="390" />  <img src="https://user-images.githubusercontent.com/79048895/171569770-fd50135b-c223-4b24-bac7-ffc65adecd8e.jpg" width="180" height="390" />  <img src="https://user-images.githubusercontent.com/79048895/171569771-7983ce77-2217-47cd-bf91-70edf9724c9f.jpg" width="180" height="390" />   <img src="https://user-images.githubusercontent.com/79048895/171569775-6b013fec-2950-4356-8b27-c18119fbecb9.jpg" width="180" height="390" />
